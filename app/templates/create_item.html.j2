@@ -1,0 +1,59 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+{% block css%}
+    <link href="{{url_for('static',filename='css/create_item.css')}}" rel="stylesheet">
+    {% endblock%}
+
+{# {% block css %}
+main
+{% endblock %} #}
+
+{% block content %}
+<br>
+    <h1>
+    Create Item
+    </h1>
+    {# <small style="color:red;">{{error}}</small> #}
+    <form action="{{url_for('api.create_item')}}" method='POST'>
+        {{ form.hidden_tag() }}
+
+        {# name #}
+        <div>
+            {{form.name.label(class="form-label")}}
+            {{form.name(class="form-control")}}
+        </div>
+
+        {# description #}
+        <div>
+            {{form.desc.label(class="form-label")}}
+            {{form.desc(class="form-control")}}
+        </div>
+
+        {# price #}
+        <div>
+            {{form.price.label(class="form-label")}}
+            {{form.price(class="form-control")}}
+            
+        </div>
+
+        {# image #}
+        <div>
+            {{form.img.label(class="form-label")}}
+            {{form.img(class="form-control")}}
+        </div>
+
+        {# Submit Button #}
+        <br>
+        <div>
+        {{form.submit(class="bt btn-warning form-control")}}
+        </div>
+
+    </form>
+
+
+
+{% endblock %}

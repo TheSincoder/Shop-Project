@@ -1,0 +1,78 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+{% block css%}
+    <link href="{{url_for('static',filename='css/cart.css')}}" rel="stylesheet">
+    {% endblock%}
+
+{# {% block css %}
+main
+{% endblock %} #}
+
+{% block content_title %}
+
+<br>
+  <h1> Your Shopping Cart </h1>
+  <br> 
+ 
+ <div class="d-flex justify-content-center">
+    
+    <br>
+    <button id="button" type="button" class="card-button" onclick="location.href='{{url_for('api.remove_all_items')}}'">
+                Remove All Items From Cart
+            </button>
+    </div>
+    
+   
+{% endblock %}
+
+{% block content %}
+   <div id="box_container" class="d-flex flex-row">
+    {% if items %}
+
+
+    {% for item in items %}
+    
+    
+    <div id="box" class="d-flex flex-row mx-2" >
+        <div id="item-card" class="card col-3 mx-auto" style="width: 18rem;" >
+            <div id="card" class="row g-0">
+                <div class="col-md-4">
+                    
+               
+                </div>
+            <div class="col-md-12" style="height: 32vh">
+            <div class="card-body">
+                <img src="{{item.img}}" class="card-img-top" alt="Item Image" style="height: 15vh">
+                <h5 class="card-title">{{item.name}}</h5>
+                <p class="card-text">
+                
+                    
+                    <ul>
+                         
+                        <li><small><a href="{{url_for('api.get_item', id=item.id)}}">View Description</a> </li>    
+                        
+                        <div>Price: {{item.price}} Gold</div>
+                        
+                                               
+                    </ul>
+                </p>
+                
+            <button id="button" type="button" class="card-button" onclick="location.href='{{url_for('api.remove_from_cart', id=item.id)}}'">
+                Remove From Cart
+            </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        {% endfor %}
+    {% endif %}
+  
+
+
+
+{% endblock %}

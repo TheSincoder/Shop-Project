@@ -1,0 +1,57 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+{% block css%}
+    <link href="{{url_for('static',filename='css/single_item.css')}}" rel="stylesheet">
+    {% endblock%}
+
+{# {% block css %}
+main
+{% endblock %} #}
+
+{% block content %}
+
+    
+    <br> <br>
+     <div id="box_container" class="d-flex flex-wrap justify-content-center">
+    {% if item %}
+    
+    
+    
+    <div id="box" class="d-flex flex-wrap mx-2 mt-5" >
+        <div id="item-card" class="card mx-auto" style="width: 18rem;" >
+            <div id="card" class="row g-0">
+                <div class="col-md-4">
+                    
+               
+                </div>
+            <div class="col-md-12" style="height: 100%">
+            <div class="card-body">
+                <img src="{{item.img}}" class="card-img-top" alt="Item Image" style="height: 15vh">
+                <h5 class="card-title">{{item.name}}</h5>
+                <p class="card-text">
+                
+                    
+                    
+                         
+                        <p>{{item.desc}}</p>    
+                        
+                        <div>Price: {{item.price}} Gold</div>
+                        
+                                               
+                   
+                </p>
+                 </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+                
+                {% endif %}
+
+
+{% endblock %}

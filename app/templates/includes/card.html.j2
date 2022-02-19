@@ -1,0 +1,32 @@
+{# <div id="box" class="d-flex flex-row"> #}
+<div id="card" class="card col-3 mx-auto" style="width: 18rem;">
+  <img src="{{item.img}}" class="card-img-top" alt="Item Image">
+  <div class="card-body">
+    <h5 class="card-title"  STYLE="text-transform:capitalize">{{item.name}}</h5>
+    <p class="card-text">
+         <ul>
+      
+      <li>{{item.desc}}</li>
+      <li>Gold Cost: {{item.price}}</li>
+      
+      
+      
+      
+    </ul>
+
+    </p>
+    
+     
+     
+    
+  </div>
+  {# {% if user_item or g.current_user.is_admin %}
+  <a href="{{url_for('main.remove', id=item.id)}}" class="btn btn-danger mx-3">Delete</a>
+  {% endif %} #}
+  <br>
+  </div>
+  
+  {# </div> #}
+  
+  {# <a href="{{url_for('User.add_to_team', id=poke.id) }}" ><button type="submit" class="btn btn-danger btn-block"><i class="bi bi-plus-square-fill"></i>&nbsp;Add To Team</button></a>
+  <br> #}

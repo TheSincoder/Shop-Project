@@ -1,0 +1,59 @@
+{% extends 'base.html.j2' %}
+
+{% block title %}
+    Shadow Wares
+{% endblock %}
+
+{% block css%}
+    <link href="{{url_for('static',filename='css/view_shop.css')}}" rel="stylesheet">
+    {% endblock%}
+
+
+{% block content %}
+
+   
+  
+
+
+
+    <div id="box_container" class="d-flex flex-wrap">
+    {% if items %}
+    {% for item in items %}
+    
+    
+    <div id="box" class="d-flex flex-wrap mx-2" >
+        <div id="item-card" class="card col-3 mx-auto" style="width: 18rem;" >
+            <div id="card" class="row g-0">
+                <div class="col-md-4">
+                    
+               
+                </div>
+            <div class="col-md-12" style="height: 32vh">
+            <div class="card-body">
+                <img src="{{item.img}}" class="card-img-top" alt="Item Image" style="height: 15vh">
+                <h5 class="card-title">{{item.name}}</h5>
+                <p class="card-text">
+                
+                    
+                    <ul>
+                         
+                        <li><small><a href="{{url_for('api.get_item', id=item.id)}}">View Description</a></small> </li>    
+                        
+                        <div>Price: {{item.price}} Gold</div>
+                        
+                                               
+                    </ul>
+                </p>
+                
+            <button id="button" type="button" class="card-button" onclick="location.href='{{url_for('api.add_to_cart', id=item.id)}}'">
+                Add To Cart
+            </button>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}

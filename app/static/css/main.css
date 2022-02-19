@@ -1,0 +1,16 @@
+body, html{
+    height: 100vh;
+    background-image: linear-gradient(black,#cc9966);
+    color: white
+}
+
+.my-nav, .my-nav>*{
+    font-weight: bold;
+    color: white !important;
+    background-color: black !important;
+    
+}
+
+.my-nav a{
+    color: white;
+}

@@ -1,0 +1,36 @@
+#card {
+    background-color: #cc9966;
+    border-color: black;
+    border-width: 2px;
+    color: white;
+    
+}
+
+div.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+#box{
+    margin: 5px;
+    display: inline-block;
+
+/* #box_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+     */
+}
+
+h1{
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+}
