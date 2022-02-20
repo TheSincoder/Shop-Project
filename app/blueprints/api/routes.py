@@ -25,6 +25,7 @@ def create_item():
                 "price":form.price.data,
                 "desc":form.desc.data,
                 "img":form.img.data,
+                "category":form.category.data,
             }
             #create an empty User
             new_item_object = Item()
@@ -51,6 +52,37 @@ def view_shop():
     # display each item on the page
 
     items = Item.query.all()
+    return render_template('view_shop.html.j2', items = items)
+
+# View Shop Weapons
+@api.route('/shop_weapons', methods=['GET'])
+@login_required
+def shop_weapons():
+    # access the items
+    # display each item on the page
+
+    items = Item.query.filter_by(category = 'weapon').all()
+    # Get Category where Category = 'weapons' ????
+    return render_template('view_shop.html.j2', items = items)
+
+# View Shop Armor
+@api.route('/shop_armor', methods=['GET'])
+@login_required
+def shop_armor():
+    # access the items
+    # display each item on the page
+
+    items = Item.query.filter_by(category = 'armor').all()
+    return render_template('view_shop.html.j2', items = items)
+
+# View Shop Potions
+@api.route('/shop_potions', methods=['GET'])
+@login_required
+def shop_potions():
+    # access the items
+    # display each item on the page
+
+    items = Item.query.filter_by(category = 'potion').all()
     return render_template('view_shop.html.j2', items = items)
 
 # Add to cart

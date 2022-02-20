@@ -25,6 +25,7 @@ class User(UserMixin, db.Model):
     last_name = db.Column(db.String(150))
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(200))
+    gold = db.Column(db.Integer, default = 1000)
     created_on = db.Column(db.DateTime, default = dt.utcnow)
     admin = db.Column(db.Boolean, default=False)
     user_item = db.relationship(
@@ -77,6 +78,7 @@ class Item(db.Model):
     price = db.Column(db.Integer)
     desc = db.Column(db.Text)
     img = db.Column(db.String)
+    category = db.Column(db.String)
     created_on = db.Column(db.DateTime, index=True, default=dt.utcnow)
     
 
@@ -90,13 +92,14 @@ class Item(db.Model):
             'desc':self.desc ,
             'price':self.price ,
             'img':self.img ,
+            'category':self.category ,
             'created_on':self.created_on ,
                     
         }
         return data
 
     def from_dict(self, data):
-        for field in ["name", "desc", "price", "img"]:
+        for field in ["name", "desc", "price", "img", "category"]:
             if field in data:
                 # the object, the attribute, value
                 setattr(self,field, data[field])

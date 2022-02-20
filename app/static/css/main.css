@@ -1,6 +1,8 @@
 body, html{
     height: 100vh;
-    background-image: linear-gradient(black,#cc9966);
+    background-color: rgb(68, 68, 68);
+    /* background-image: linear-gradient(black brown); */
+    /* background-size: cover; */
     color: white
 }
 
